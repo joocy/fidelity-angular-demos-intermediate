@@ -14,7 +14,8 @@
         "browser": "apps/demo-10-performance/src/main.ts",
         "tsConfig": "apps/demo-10-performance/tsconfig.app.json",
         "assets": [{ "glob": "**/*", "input": "apps/demo-10-performance/public" }],
-        "styles": ["apps/demo-10-performance/src/styles.css"]
+        "styles": ["apps/demo-10-performance/src/styles.css"],
+        "polyfills": ["zone.js"]
       },
       "configurations": {
         "production": { "budgets": [{"type":"initial","maximumWarning":"500kb","maximumError":"1mb"}], "outputHashing": "all" },
