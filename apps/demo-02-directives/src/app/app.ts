@@ -1,16 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 import { HighlightDirective } from './highlight.directive';
 import { HasRoleDirective }   from './has-role.directive';
 
-const TRADES = [
-  { id:'T001', symbol:'AAPL', side:'buy',  qty:100, price:182.50 },
-  { id:'T002', symbol:'GS',   side:'sell', qty: 50, price:455.00 },
-  { id:'T003', symbol:'MSFT', side:'buy',  qty: 80, price:414.00 },
-];
-
 @Component({
   selector: 'app-root',
-  imports: [HighlightDirective, HasRoleDirective],
+  imports: [UpperCasePipe, HighlightDirective, HasRoleDirective],
   template: `
     <nav><strong>Apex Asset Management</strong><span>Demo 02: Directives</span></nav>
     <div style="padding:1.5rem;max-width:900px;margin:0 auto">
@@ -56,5 +51,9 @@ const TRADES = [
 export class App {
   roles = ['viewer', 'trader', 'admin'];
   role  = signal('trader');
-  trades = TRADES;
+  trades = [
+    { id:'T001', symbol:'AAPL', side:'buy',  qty:100, price:182.50 },
+    { id:'T002', symbol:'GS',   side:'sell', qty: 50, price:455.00 },
+    { id:'T003', symbol:'MSFT', side:'buy',  qty: 80, price:414.00 },
+  ];
 }

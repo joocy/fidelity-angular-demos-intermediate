@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, OnDestroy, AfterViewInit,
-         SimpleChanges, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+         SimpleChanges, signal, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Demonstrates all four key lifecycle hooks.

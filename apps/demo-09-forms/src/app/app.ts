@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, NonNullableFormBuilder, FormControl,
          FormArray, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -80,7 +80,7 @@ function lotSizeValidator(ctrl: AbstractControl): ValidationErrors | null {
   `,
 })
 export class App {
-  private fb = new NonNullableFormBuilder();
+  private fb = inject(NonNullableFormBuilder);
 
   form = this.fb.group<OrderForm>({
     symbol:   this.fb.control('', Validators.required),
@@ -101,7 +101,7 @@ export class App {
 
   removeLeg(i: number) { this.legs.removeAt(i); }
 
-  submitted: unknown = null;
+  submitted: ReturnType<typeof this.form.getRawValue> | null = null;
   submit() {
     if (this.form.valid) this.submitted = this.form.getRawValue();
   }

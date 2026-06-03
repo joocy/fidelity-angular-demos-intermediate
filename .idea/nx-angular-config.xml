@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NxAngularConfigService" workspaceLocation="file://$PROJECT_DIR$/nx.json">
+    <projects>
+      <project name="demo-01-components" file="file://$PROJECT_DIR$/apps/demo-01-components/project.json" />
+      <project name="demo-02-directives" file="file://$PROJECT_DIR$/apps/demo-02-directives/project.json" />
+      <project name="demo-03-signals" file="file://$PROJECT_DIR$/apps/demo-03-signals/project.json" />
+      <project name="demo-04-lifecycle" file="file://$PROJECT_DIR$/apps/demo-04-lifecycle/project.json" />
+      <project name="demo-05-di" file="file://$PROJECT_DIR$/apps/demo-05-di/project.json" />
+      <project name="demo-06-rxjs" file="file://$PROJECT_DIR$/apps/demo-06-rxjs/project.json" />
+      <project name="demo-07-state" file="file://$PROJECT_DIR$/apps/demo-07-state/project.json" />
+      <project name="demo-08-routing" file="file://$PROJECT_DIR$/apps/demo-08-routing/project.json" />
+      <project name="demo-09-forms" file="file://$PROJECT_DIR$/apps/demo-09-forms/project.json" />
+      <project name="demo-10-performance" file="file://$PROJECT_DIR$/apps/demo-10-performance/project.json" />
+      <project name="demo-11-testing" file="file://$PROJECT_DIR$/apps/demo-11-testing/project.json" />
+    </projects>
+  </component>
+</project>
