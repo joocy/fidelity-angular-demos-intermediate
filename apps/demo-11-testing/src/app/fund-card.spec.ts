@@ -35,7 +35,8 @@ describe('FundCard', () => {
   });
 
   it('should show red colour for a negative return', () => {
-    component.fund = { ...mockFund, ytdReturn: -2.1 };
+    // setInput is a new API that allows us to change @Input properties without re-creating the component
+    fixture.componentRef.setInput('fund', { ...mockFund, ytdReturn: -2.1 });
     fixture.detectChanges();
     const el = fixture.nativeElement.querySelector('[data-testid="fund-return"]') as HTMLElement;
     expect(el.style.color).toBe('rgb(114, 28, 36)');  // #721c24 in RGB
