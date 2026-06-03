@@ -1,0 +1,38 @@
+{
+  "name": "demo-05-di",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/demo-05-di/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/demo-05-di",
+        "browser": "apps/demo-05-di/src/main.ts",
+        "tsConfig": "apps/demo-05-di/tsconfig.app.json",
+        "assets": [{ "glob": "**/*", "input": "apps/demo-05-di/public" }],
+        "styles": ["apps/demo-05-di/src/styles.css"]
+      },
+      "configurations": {
+        "production": { "budgets": [{"type":"initial","maximumWarning":"500kb","maximumError":"1mb"}], "outputHashing": "all" },
+        "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production":  { "buildTarget": "demo-05-di:build:production" },
+        "development": { "buildTarget": "demo-05-di:build:development" }
+      },
+      "defaultConfiguration": "development",
+      "options": { "port": 4405 }
+    },
+    "lint": { "executor": "@nx/eslint:lint" },
+    "test": { "executor": "@angular/build:unit-test", "options": { "watch": false } }
+  }
+}

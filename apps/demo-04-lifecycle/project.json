@@ -1,0 +1,38 @@
+{
+  "name": "demo-04-lifecycle",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/demo-04-lifecycle/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/demo-04-lifecycle",
+        "browser": "apps/demo-04-lifecycle/src/main.ts",
+        "tsConfig": "apps/demo-04-lifecycle/tsconfig.app.json",
+        "assets": [{ "glob": "**/*", "input": "apps/demo-04-lifecycle/public" }],
+        "styles": ["apps/demo-04-lifecycle/src/styles.css"]
+      },
+      "configurations": {
+        "production": { "budgets": [{"type":"initial","maximumWarning":"500kb","maximumError":"1mb"}], "outputHashing": "all" },
+        "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production":  { "buildTarget": "demo-04-lifecycle:build:production" },
+        "development": { "buildTarget": "demo-04-lifecycle:build:development" }
+      },
+      "defaultConfiguration": "development",
+      "options": { "port": 4404 }
+    },
+    "lint": { "executor": "@nx/eslint:lint" },
+    "test": { "executor": "@angular/build:unit-test", "options": { "watch": false } }
+  }
+}
