@@ -5,14 +5,20 @@ Each app demonstrates 1-2 key concepts from its module.
 
 ## Setup
 ```bash
+# npm
 npm install
+
+# pnpm
+pnpm install
 ```
 
 ## Running a demo
 ```bash
+# npm
 npx nx serve demo-01-components
-npx nx serve demo-02-directives
-# ... etc
+
+# pnpm
+pnpm nx serve demo-01-components
 ```
 
 | App | Key concepts demonstrated |
