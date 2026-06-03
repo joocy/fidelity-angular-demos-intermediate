@@ -8,7 +8,8 @@ import { ConsoleLogger, TimestampLogger } from './logger.service';
   // Component-level provider: this component gets its own ConsoleLogger instance,
   // AND we swap it for TimestampLogger — showing useClass override.
   providers: [
-    { provide: ConsoleLogger, useClass: TimestampLogger }
+    TradeService,
+    { provide: ConsoleLogger, useClass: TimestampLogger },
   ],
   template: `
     <nav><strong>Apex Asset Management</strong><span>Demo 05: Dependency Injection</span></nav>

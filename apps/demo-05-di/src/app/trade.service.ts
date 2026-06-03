@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { API_URL } from './api-url.token';
 import { ConsoleLogger } from './logger.service';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class TradeService {
   // inject() API — modern alternative to constructor injection
   private logger = inject(ConsoleLogger);
