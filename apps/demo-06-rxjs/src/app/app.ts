@@ -1,8 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FundService, Fund } from './fund.service';
+import { FundService } from './fund.service';
 
 /**
  * Demonstrates the key RxJS patterns for the intermediate course:
@@ -12,7 +12,6 @@ import { FundService, Fund } from './fund.service';
  *  3. distinctUntilChanged() — skip if the value hasn't changed
  *  4. switchMap()     — cancel the previous search, start a new one
  *  5. toSignal()      — bridge Observable → Signal for clean template binding
- *  6. takeUntil() — auto-cleanup
  */
 @Component({
   selector: 'app-root',
@@ -60,7 +59,6 @@ export class App {
 
   // Subject: we push values in, observables flow out
   private search$ = new Subject<string>();
-  private destroy$ = new Subject<void>();
 
   // switchMap: cancels previous search when a new term arrives
   // toSignal: converts the observable to a signal — no | async pipe needed
@@ -68,8 +66,7 @@ export class App {
     this.search$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap(q => this.svc.search(q)),
-      takeUntil(this.destroy$),    // auto-unsubscribe — no ngOnDestroy needed
+      switchMap(q => this.svc.search(q))
     )
   );
 
@@ -79,10 +76,5 @@ export class App {
 
   onSearch(event: Event) {
     this.search$.next((event.target as HTMLInputElement).value);
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }
