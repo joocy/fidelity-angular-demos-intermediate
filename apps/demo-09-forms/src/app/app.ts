@@ -94,8 +94,8 @@ export class App {
 
   addLeg() {
     this.legs.push(this.fb.group({
-      symbol: this.fb.control('', Validators.required),
-      qty:    this.fb.control(10,  [Validators.required, Validators.min(1)]),
+      symbol: this.fb.control(this.f.symbol.value, Validators.required),
+      qty:    this.fb.control(this.f.quantity.value,  [Validators.required, Validators.min(1)]),
     }));
   }
 
