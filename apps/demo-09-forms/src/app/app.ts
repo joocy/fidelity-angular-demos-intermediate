@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 import { ReactiveFormsModule, NonNullableFormBuilder, FormControl,
          FormArray, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
@@ -18,7 +19,7 @@ function lotSizeValidator(ctrl: AbstractControl): ValidationErrors | null {
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JsonPipe],
   template: `
     <nav><strong>Apex Asset Management</strong><span>Demo 09: Reactive Forms</span></nav>
     <div style="padding:1.5rem;max-width:600px;margin:0 auto">
